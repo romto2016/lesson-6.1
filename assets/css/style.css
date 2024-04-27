@@ -1,0 +1,137 @@
+* {
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+body {
+    overflow: hidden;
+}
+
+.container {
+    position: relative;
+    margin: 200px auto;
+    width: 300px;
+    height: 300px;
+    perspective: 1700px;
+}
+
+.box {
+    width: inherit;
+    height: inherit;
+    transform-style: preserve-3d;
+    transform: rotateY(20deg);
+    animation-duration: 7s;
+    animation-name: out;
+}
+
+.container:hover {
+    animation-duration: 7s;
+    animation-name: out;
+}
+
+.side {
+    position: absolute;
+    transition: all 2s ease-in-out;
+}
+
+.side {
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    border: 5px solid #cfdbdb;
+    font: normal 70px Arial;
+    text-align: center;
+    line-height: 300px;
+    color: #fff;
+}
+
+.link {
+    color: hsla(190, 41%, 89%, 0.75)
+}
+
+.box:hover .link:hover {
+    opacity: 0.5;
+    color: hsla(22, 46%, 49%, 0.75);
+}
+
+.front {
+    transform: translateZ(300px);
+    background-color: hsla(177, 46%, 49%, 0.75);
+}
+
+.back {
+    transform: rotateY(180deg) translateZ(300px);
+    background-color: hsla(98, 93%, 44%, 0.6);
+}
+
+.back:hover {
+    animation-duration: 3s;
+    animation-name: part;
+}
+
+.right {
+    transform: rotateY(90deg) translateZ(150px) scaleX(2);
+    background-color: hsla(204, 93%, 44%, 0.75);
+}
+
+.right:hover {
+    /* transform: skewY(-15deg); */
+    animation-duration: 3s;
+    animation-name: part;
+}
+
+.left {
+    transform: rotateY(-90deg) translateZ(150px) scaleX(2);
+    background-color: hsla(298, 93%, 44%, 0.3);
+}
+
+.left:hover {
+    /* transform: skewY(-15deg); */
+    animation-duration: 3s;
+    animation-name: part;
+}
+
+.top {
+    transform: rotateX(90deg) translateZ(150px) scaleY(2);
+    background-color: hsla(73, 97%, 72%, 0.75);
+}
+
+.top:hover {
+    /* transform: skewY(-15deg); */
+    transform: translate(0, -350px);
+}
+
+.bottom {
+    transform: rotateX(-90deg) translateZ(150px) scaleY(2);
+    background-color: hsla(162, 90%, 48%, 0.5);
+}
+
+@keyframes out {
+    0% {
+        /* transform: rotateY(20deg); */
+    }
+    25% {
+        transform: translate(-350px, 0) rotateX(-30deg) rotateY(-20deg);
+    }
+    50% {
+        transform: translate(350px, 0);
+    }
+    100% {
+        transform: translate(0, 350px);
+    }
+}
+
+@keyframes part {
+    0% {
+        /* transform: rotateY(20deg); */
+    }
+    25% {
+        transform: translate(-350px, 0) rotateX(-30deg) rotateY(-20deg);
+    }
+    50% {
+        transform: skewY(-15deg);
+    }
+    100% {
+        transform: translate(0, 350px);
+    }
+}
